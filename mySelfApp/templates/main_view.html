@@ -1,0 +1,27 @@
+<!-- DOCTYPE html5 -->
+{% load static %}
+<html lang='en'> 
+	<head>
+		<title>Main page</title>
+		<script src="https://kit.fontawesome.com/51e1fe77b6.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="{% static 'css/background.css' %}"/>
+		<link rel="stylesheet" href="{% static 'css/main_view_style.css' %}"/>
+	</head>
+	<body>
+		<div id="container">
+			{% comment %}welcome section{% endcomment %}
+			<h1>Welcome back!</h1>
+			<h3>Orange Gat</h3>
+			{% comment %}small showing stats section{% endcomment %}
+			<div id="img"></div>	
+			<p>You have {{percentage}}% of loyalty to your words</p>
+			{% comment %}options section{% endcomment %}
+			<h1>Select one of the following features: </h1>
+			<div id="options-container">
+				<a href="{% url 'myself:observation_view' %}"><div class="option" id="Observations"><i class="fa-solid fa-eye"></i>Observations</div></a>
+				<a href="{% url 'myself:situation_view' %}"><div class="option" id="Situations"><i class="fa-solid fa-circle-exclamation"></i>Situations</div></a>
+				<a href="{% url 'myself:stats_view_emotional_bridge' %}"><div class="option" id="Stats"><i class="fa-solid fa-database"></i>Stats</div></a>
+			</div>
+		</div>
+	</body>
+</html>

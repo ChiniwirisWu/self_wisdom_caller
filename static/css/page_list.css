@@ -1,0 +1,25 @@
+#page-list{
+	background-color: hsla(0,0%,80%, .6);
+}
+
+#page-list-ul{
+	display: flex;
+	list-style: none;
+}
+
+#page-list-ul li{
+	padding: 5px 10px;
+	margin-right: 1px solid #eee;
+	cursor: pointer;
+}
+
+
+#page-list-ul li:hover{
+	background-color: hsla(0,0%,50%, .6);
+}
+
+#page-list-ul a{
+	text-decoration: none; 
+	color: #000;
+}
+

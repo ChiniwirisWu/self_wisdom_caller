@@ -1,0 +1,41 @@
+<!-- DOCTYPE html -->
+{%load static%}
+ <html lang="es">
+	 <head>
+		 <title>{{title}}</title>
+		 <link rel="stylesheet" href="{% static 'css/background.css' %}" />
+		 <link rel="stylesheet" href="{% static 'css/chat.css' %}" />
+		 <link rel="stylesheet" href="{% static 'css/page_list.css' %}" />
+		 <script src="https://kit.fontawesome.com/51e1fe77b6.js" crossorigin="anonymous"></script>
+	 </head>
+	 <body>
+		<div id="page-list">
+			<ul id="page-list-ul">
+				<a href="{% url 'myself:main_view' %}"><li>Main page</li></a>
+				<a href="{% url 'myself:observation_view' %}"><li>Observations page</li></a>
+				<a href="{% url 'myself:situation_view' %}"><li>Situations page</li></a>
+				<a href="{% url 'myself:stats_view_emotional_bridge' %}"><li>Stats page</li></a>
+			</ul>
+		</div>
+		 <h1>{{title}}</h1>
+		<div id="container">
+			<div id="messages">
+				<div class="messages messages-bot">Please insert a new observation:</div><br>
+				<div class="messages messages-user">{{user_query}}</div><br>
+				<div class="messages messages-bot">
+					<p>{{message}}</p><br>
+					<p>"{{user_response}}"</p>
+				</div><br>
+				<div class="messages messages-bot">With the information provided, are you going to do something to feel better now? type "y" for yes, and "n" for no.</div><br>
+			</div>
+			<div id="chatbar">
+				<form action="{{form_path}}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" value="{{id}}" name="id" />
+					<button name="decision" value="yes">Yes</button>
+					<button name="decision" value="no">No</button>
+				</form>
+			</div>
+		</div>	
+	 </body>
+ </html>

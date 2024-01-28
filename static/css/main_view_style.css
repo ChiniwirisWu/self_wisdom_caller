@@ -1,0 +1,46 @@
+h1, h2, h3, p{
+	text-align: center;
+}
+
+h1{
+	margin-top: 100px;
+}
+
+#container{
+	margin: auto;
+	margin-top: 100px;
+	width: 800px;
+	height: 800px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px #000;
+}
+
+#img{
+	margin-top: 100px;
+	width: 100px;
+	height: 100px;
+	/*background-color: #549;*/
+	margin: auto;
+}
+
+#options-container{
+	margin-top: 100px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+a{
+	padding: 10px;
+}
+
+.option{
+	width: 100px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 5px #333;
+	/*background-color: #549;*/
+}

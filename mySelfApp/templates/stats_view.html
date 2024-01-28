@@ -1,0 +1,55 @@
+{% load static %}
+<!-- DOCTYPE html -->
+<html lang="en">
+	<head>
+		<title>Stats</title>
+		<link href="{% static 'css/background.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/stats_view_style.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/page_list.css' %}" rel="stylesheet" />
+		<script src="https://kit.fontawesome.com/51e1fe77b6.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<input type="hidden" id="category-selected" value={{category_selected}} />
+		<div id="page-list">
+			<ul id="page-list-ul">
+				<a href="{% url 'myself:main_view' %}"><li>Main page</li></a>
+				<a href="{% url 'myself:observation_view' %}"><li>Observations page</li></a>
+				<a href="{% url 'myself:situation_view' %}"><li>Situations page</li></a>
+				<a href="{% url 'myself:stats_view_emotional_bridge' %}"><li>Stats page</li></a>
+			</ul>
+		</div>
+		<h1 style="margin-top: 50px">Welcome {{user}}!</h1>
+		<p>This is the data we got so far:</p>
+		<div id="container">
+			<!--I want a horizontal slider with the categories-->
+			<h3>Categories: </h3>
+			<div id="categories-slider">
+				{% for el in labels %}
+				<a href="/stats_{{el}}/" method="POST">
+					<div class="category {{el}}">
+						<p class="category-name">{{el}}</p>
+					</div>
+				</a>
+				{% endfor %}
+
+			</div>
+			<!--I want an space where the sentences are displayed like a list with an errase button-->
+			<h3>Logs</h3>
+			<div id="category-displayed">
+				<ul>
+					{% for el in logs %}
+						<li>
+							<form action="/remove_log/{{el.id}}/{{el.target}}/" method="POST">
+								{% csrf_token %}
+								<p>{{el.text}}</p>
+								<input type="hidden" value={{page_path}} name="target" />
+								<button class="delete-btn"}><i class="fa-solid fa-trash"></i></i></button>
+							</form>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<script src="{% static 'js/stats.js' %}"></script>
+	</body>
+</html>

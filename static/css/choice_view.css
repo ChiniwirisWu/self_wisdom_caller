@@ -1,0 +1,11 @@
+form{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+button{
+	display: inline-block;
+	margin: auto;
+	padding: 5px 10px;
+}
